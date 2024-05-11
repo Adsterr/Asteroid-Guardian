@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://cq2b82bsv86tg"]
+
+[ext_resource type="Texture2D" uid="uid://y6364nh4luct" path="res://assets/Asteroids/Asteroid 01 - Explode.png" id="1_ibc5f"]
+[ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_myvad"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq74x"]
+atlas = ExtResource("1_ibc5f")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8ryo"]
+atlas = ExtResource("1_ibc5f")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dc8t"]
+atlas = ExtResource("1_ibc5f")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvf6s"]
+atlas = ExtResource("1_ibc5f")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkibd"]
+atlas = ExtResource("1_ibc5f")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kplyb"]
+atlas = ExtResource("1_ibc5f")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqdd4"]
+atlas = ExtResource("1_ibc5f")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hmd5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq74x")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8ryo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dc8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvf6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkibd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kplyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqdd4")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ajwd8"]
+radius = 16.268
+
+[node name="Asteroid" type="RigidBody2D"]
+collision_layer = 2
+gravity_scale = 0.0
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_myvad")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hmd5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+rotation = 2.81347
+skew = -0.272272
+shape = SubResource("CircleShape2D_ajwd8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

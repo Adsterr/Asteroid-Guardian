@@ -1,0 +1,281 @@
+[gd_scene load_steps=15 format=3 uid="uid://b3c3rfbcpappm"]
+
+[ext_resource type="PackedScene" uid="uid://dler4jf2upa7u" path="res://scenes/player.tscn" id="1_mptlm"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_vvquh"]
+[ext_resource type="Texture2D" uid="uid://dviqlx1ctfn7b" path="res://assets/Backgrounds/Condesed/Starry background  - Layer 01 - Void.png" id="2_d6iap"]
+[ext_resource type="Texture2D" uid="uid://cth3vkaag5hgb" path="res://assets/Backgrounds/Condesed/Starry background  - Layer 02 - Stars.png" id="3_ashem"]
+[ext_resource type="Texture2D" uid="uid://wpo1hy4evdo0" path="res://assets/Backgrounds/Condesed/Starry background  - Layer 03 - Stars.png" id="4_1e5gq"]
+[ext_resource type="Shader" path="res://shaders/post_processing/srt.gdshader" id="5_dfbo6"]
+[ext_resource type="PackedScene" uid="uid://daooq4go6lhgo" path="res://scenes/earth.tscn" id="6_w2q0u"]
+[ext_resource type="AudioStream" uid="uid://6uy5ynwc1vun" path="res://sound/music/main.wav" id="8_1s2je"]
+[ext_resource type="AudioStream" uid="uid://l4cq2dmapapg" path="res://sound/sfx/big_explosion.wav" id="9_2td2a"]
+[ext_resource type="AudioStream" uid="uid://wa46xexufyof" path="res://sound/sfx/womp_womp.mp3" id="9_klyvi"]
+[ext_resource type="AudioStream" uid="uid://c75yuivcj48xo" path="res://sound/sfx/hitHurt.wav" id="11_d88f4"]
+[ext_resource type="AudioStream" uid="uid://cjsgbf7uwh50i" path="res://sound/sfx/explosion.wav" id="12_mseep"]
+[ext_resource type="AudioStream" uid="uid://ci4ed2d8781ba" path="res://sound/sfx/click.wav" id="13_d14d8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1s8n"]
+shader = ExtResource("5_dfbo6")
+
+[node name="Game" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_vvquh")
+
+[node name="Spawning" type="Node" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="Spawning"]
+wait_time = 2.0
+
+[node name="AsteroidSpawns" type="Node" parent="Spawning"]
+
+[node name="Spawn1" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(-37, -82)
+
+[node name="Spawn2" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(28, -84)
+
+[node name="Spawn3" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(86, -82)
+
+[node name="Spawn4" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(154, -78)
+
+[node name="Spawn5" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(227, -76)
+
+[node name="Spawn6" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(311, -77)
+
+[node name="Spawn7" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(389, -75)
+
+[node name="Spawn8" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(459, -44)
+
+[node name="Spawn9" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(493, 42)
+
+[node name="Spawn10" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(488, 118)
+
+[node name="Spawn11" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(487, 210)
+
+[node name="Spawn12" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(447, 283)
+
+[node name="Spawn13" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(354, 297)
+
+[node name="Spawn14" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(254, 277)
+
+[node name="Spawn15" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(174, 284)
+
+[node name="Spawn16" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(67, 280)
+
+[node name="Spawn17" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(-23, 281)
+
+[node name="Spawn18" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(-111, 224)
+
+[node name="Spawn19" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(-111, 147)
+
+[node name="Spawn20" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(-100, 64)
+
+[node name="Spawn21" type="Node2D" parent="Spawning/AsteroidSpawns"]
+position = Vector2(-113, -17)
+
+[node name="Deco" type="Node" parent="."]
+
+[node name="BG" type="Node" parent="Deco"]
+
+[node name="StarryBackground-Layer01-Void" type="Sprite2D" parent="Deco/BG"]
+z_index = -5
+position = Vector2(193, 109)
+scale = Vector2(0.847744, 0.847744)
+texture = ExtResource("2_d6iap")
+region_enabled = true
+region_rect = Rect2(2235.06, 10.9425, 751.905, 356.965)
+
+[node name="StarryBackground-Layer02-Stars" type="Sprite2D" parent="Deco/BG"]
+z_index = -4
+position = Vector2(249, 177)
+scale = Vector2(0.978933, 0.978933)
+texture = ExtResource("3_ashem")
+region_enabled = true
+region_rect = Rect2(2235.06, 10.943, 751.905, 356.965)
+
+[node name="StarryBackground-Layer03-Stars" type="Sprite2D" parent="Deco/BG"]
+z_index = -3
+position = Vector2(176, 109)
+texture = ExtResource("4_1e5gq")
+region_enabled = true
+region_rect = Rect2(2235.06, 10.943, 751.905, 356.965)
+
+[node name="Shader" type="CanvasLayer" parent="Deco"]
+
+[node name="ColorRect" type="ColorRect" parent="Deco/Shader"]
+material = SubResource("ShaderMaterial_x1s8n")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(192, 108)
+zoom = Vector2(3, 3)
+
+[node name="Player" parent="." instance=ExtResource("1_mptlm")]
+z_index = 5
+position = Vector2(80, 99)
+input_pickable = true
+
+[node name="Earth" parent="." instance=ExtResource("6_w2q0u")]
+position = Vector2(193, 107)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameOver" type="Label" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 87.0
+offset_top = 30.0
+offset_right = 303.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 20
+text = "GAME OVER.."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackspaceToReset" type="Label" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 85.0
+offset_top = 170.0
+offset_right = 301.0
+offset_bottom = 223.0
+theme_override_font_sizes/font_size = 15
+text = "Press BACKSPACE to restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathMessage" type="Label" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 28.0
+offset_top = 147.0
+offset_right = 361.0
+offset_bottom = 170.0
+text = "The earth blew up :("
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 140.0
+offset_right = 294.0
+offset_bottom = 215.0
+text = "Press ENTER to start
+Press BACKSPACE to reset
+Press I for other"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scores" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="UI/Scores"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 20.0
+offset_right = 213.0
+offset_bottom = 43.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreTimer" type="Timer" parent="UI/Scores/Score"]
+wait_time = 0.1
+
+[node name="ScoreLabel" type="Label" parent="UI/Scores"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 4.0
+offset_right = 222.0
+offset_bottom = 27.0
+text = "SCORE:"
+
+[node name="HighScore" type="Label" parent="UI/Scores"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 22.0
+offset_right = 330.0
+offset_bottom = 45.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighscoreLabel" type="Label" parent="UI/Scores"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 3.0
+offset_right = 360.0
+offset_bottom = 26.0
+text = "HIGHSCORE:"
+
+[node name="KEYS" type="Label" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 58.0
+offset_right = 151.0
+offset_bottom = 81.0
+text = "H - Toggle Shader"
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="MainMusic" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("8_1s2je")
+volume_db = -20.0
+autoplay = true
+
+[node name="Big_Explosion" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("9_2td2a")
+volume_db = -17.0
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("9_klyvi")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("11_d88f4")
+volume_db = -10.0
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("12_mseep")
+volume_db = -18.0
+
+[node name="Click" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("13_d14d8")
+
+[connection signal="timeout" from="Spawning/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="destroyedAtsteroid" from="Player" to="." method="_on_player_destroyed_atsteroid"]
+[connection signal="playerExitedScreen" from="Player" to="." method="_on_player_player_exited_screen"]
+[connection signal="died" from="Earth" to="." method="_on_earth_died"]
+[connection signal="hit" from="Earth" to="." method="_on_earth_hit"]
+[connection signal="timeout" from="UI/Scores/Score/ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="finished" from="Sound/MainMusic" to="." method="_on_main_music_finished"]

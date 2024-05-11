@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dler4jf2upa7u"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_0ghae"]
+[ext_resource type="Texture2D" uid="uid://cehibjkps01sf" path="res://assets/Asteroids/Asteroid 01 - Base.png" id="1_a2pa5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmhkj"]
+radius = 16.268
+
+[node name="Player" type="RigidBody2D"]
+gravity_scale = 0.0
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_0ghae")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a2pa5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+rotation = 2.81347
+skew = -0.272272
+shape = SubResource("CircleShape2D_qmhkj")
+
+[node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]
